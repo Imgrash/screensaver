@@ -6,8 +6,7 @@ on: push
 jobs:
   run-msbuild-vstest:
   runs-on: windows-latest
-  name: Run MSBuild and VSTest
-  
+  name: Run MSBuild and VSTest  
     steps:
     - name: Checkout code
       uses: actions/checkout@v2.1.0
@@ -20,7 +19,7 @@ jobs:
     - name: Run MSBuild
       id: run_msbuild
       working-directory: $
-      run: msbuild .\TheGame.sln
+      run: msbuild .\screensaver.sln
 
     - name: Setup VSTest and add to PATH
       uses: darenm/Setup-VSTest@v1
