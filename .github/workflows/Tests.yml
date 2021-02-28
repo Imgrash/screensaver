@@ -11,5 +11,7 @@ jobs:
       - uses: actions/checkout@v2.1.0
       - name: Setup MSBuild.exe
         uses: seanmiddleditch/gha-setup-vsdevenv@v3
+        with:
+          arch: x86
       - name: tests
         run: dotnet test
