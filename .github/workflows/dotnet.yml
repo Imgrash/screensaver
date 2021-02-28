@@ -52,12 +52,10 @@ jobs:
         dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
     - name: Build and analyze
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
         .\.sonar\scanner\dotnet-sonarscanner begin /k:"Imgrash_screensaver" /o:"imgrash" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-        - name: build the solution    
         msbuild screensaver.sln
         .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
