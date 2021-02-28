@@ -24,6 +24,5 @@ jobs:
     - name: build the solution    
       run: msbuild screensaver.sln
       
-    #- name: run unit tests
-   # - uses: actions/checkout@v2.1.0
-    #- run: dotnet test
+    - name: run unit tests
+      run: dotnet test
