@@ -6,9 +6,10 @@ on: push
 jobs:
   tests:
     name: Unit Testing
-    runs-on: windows-latest
+    runs-on: [windows-latest]
     steps:
-      - name: check repo
-        uses: actions/checkout@v2.1.0
+      - uses: actions/checkout@v2.1.0
+      - name: setup-msbuild
+        uses: microsoft/setup-msbuild@v1
       - name: tests
         run: dotnet test
