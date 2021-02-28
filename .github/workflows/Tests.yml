@@ -9,9 +9,9 @@ jobs:
     runs-on: [windows-latest]
     steps:
       - uses: actions/checkout@v2.1.0
+      
       - name: Setup MSBuild.exe
-        uses: seanmiddleditch/gha-setup-vsdevenv@v3
-        with:
-          arch: x86
+        uses: roryprimrose/set-vs-sdk-project-version@v1.0.3
+
       - name: tests
         run: dotnet test
