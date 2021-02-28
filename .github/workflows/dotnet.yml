@@ -23,8 +23,3 @@ jobs:
 
     - name: build the solution    
       run: msbuild screensaver.sln
-    
-    - name: check repo
-      uses: actions/checkout@v2.1.0
-    - name: run unit tests
-      run: dotnet test
