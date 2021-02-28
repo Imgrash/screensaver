@@ -5,8 +5,7 @@ on: push
 
 jobs:
   run-msbuild-vstest:
-  runs-on: windows-latest
-  name: Run MSBuild and VSTest  
+    runs-on: windows-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2.1.0
