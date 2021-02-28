@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2.1.0
       - name: Setup MSBuild.exe
-        uses: warrenbuckley/Setup-MSBuild@v1
+        uses: seanmiddleditch/gha-setup-vsdevenv@v3
       - name: tests
         run: dotnet test
