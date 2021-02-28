@@ -9,7 +9,9 @@ jobs:
     runs-on: [windows-latest]
     steps:
       - uses: actions/checkout@v2.1.0
-      - name: setup-msbuild
-        uses: microsoft/setup-msbuild@v2
+      - name: Setup VS2019
+  # You may pin to the exact commit or the version.
+  # uses: richardo2016/Setup-MSBuild@51effcbf936905fd59a5f0626fc4583cd15727e1
+        uses: richardo2016/Setup-MSBuild@releases/clangcl_x_2017/v1
       - name: tests
         run: dotnet test
