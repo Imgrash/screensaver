@@ -5,4 +5,4 @@ solution: screensaver.sln
 script:
   - dotnet restore
   - msbuild
-  - dotnet test "../screensaver tests.dll"
+  - dotnet test "../screensaver_tests.dll"
