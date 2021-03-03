@@ -5,4 +5,4 @@ install:
   - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 script:
   - msbuild /p:Configuration=Release screensaver.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./screensaver.Tests/bin/Release/screensaver.Tests.dll
+  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./screensaver tests/bin/Debug/screensaver tests.dll
