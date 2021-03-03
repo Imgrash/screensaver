@@ -1,7 +1,7 @@
 language: csharp
 solution: screensaver.sln
 install:
-  - nuget screensaver.sln
+  - nuget restore screensaver.sln
   - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 script:
   - msbuild /p:Configuration=Release screensaver.sln
