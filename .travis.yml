@@ -3,14 +3,8 @@ mono: none
 dotnet: 2.1.502
 solution: screensaver.sln
 script:
-    - actions/checkout@v2
-    
-    - microsoft/setup-msbuild@v1
-      
-    - NuGet/setup-nuget@v1.0.5
-
     - nuget restore screensaver.sln
 
     - msbuild screensaver.sln
       
-    - run: dotnet test
+    - dotnet test
