@@ -1,8 +1,8 @@
 language: csharp
+mono: latest
+dotnet: 3.1.200
 solution: screensaver.sln
-install:
-  - nuget restore screensaver.sln
-  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
-  - msbuild /p:Configuration=Debug screensaver.sln
-  - mono ./testrunner/xunit.runner.console.2.1.0/tools/xunit.console.exe "./screensaver tests/bin/Debug/screensaver tests.dll"
+  - dotnet restore
+  - msbuild
+  - dotnet test "../screensaver tests/bin/x64/Debug/netcoreapp3.1/screensaver tests.dll"
