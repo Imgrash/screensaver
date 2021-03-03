@@ -47,5 +47,6 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"Imgrash_screensaver" /o:"imgrash" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           nuget restore screensaver.sln
           msbuild screensaver.sln
-          dotnet test
+          dotnet test --collect "DotnetCodeCoverage"
+          CodeCoverage.exe analyze /output: "%CD%\DotnetCoverage.coveragexml" "%CD%\DotnetCoverage.coverage"
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
