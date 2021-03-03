@@ -1,12 +1,8 @@
 language: csharp
 solution: screensaver.sln
-mono: none
-dotnet: 2.1.502
 install:
   - nuget restore screensaver.sln
-  #- nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
-  #- microsoft/setup-msbuild@v1
+  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
   - msbuild /p:Configuration=Release screensaver.sln
-  - dotnet restore
-  - dotnet test
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./screensaver.Tests/bin/Release/screensaver.Tests.dll
