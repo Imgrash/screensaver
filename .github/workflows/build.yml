@@ -36,14 +36,17 @@ jobs:
         run: |
           New-Item -Path .\.sonar\scanner -ItemType Directory
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+      - name: ready
+        uses: |
+	  actions/checkout@v2\
+          microsoft/setup-msbuild@v1\
+          NuGet/setup-nuget@v1.0.5 \
+
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
-        uses: actions/checkout@v2\
-        uses: microsoft/setup-msbuild@v1\
-        uses: NuGet/setup-nuget@v1.0.5 \
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"Imgrash_screensaver" /o:"imgrash" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           nuget restore screensaver.sln
