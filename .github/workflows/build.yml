@@ -43,10 +43,10 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"Imgrash_screensaver" /o:"imgrash" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          uses: actions/checkout@v2
-          uses: microsoft/setup-msbuild@v1
-          uses: NuGet/setup-nuget@v1.0.5
-          run: nuget restore screensaver.sln
-          run: msbuild screensaver.sln
-          run: dotnet test
+          actions/checkout@v2
+          microsoft/setup-msbuild@v1
+          NuGet/setup-nuget@v1.0.5
+          nuget restore screensaver.sln
+          msbuild screensaver.sln
+          dotnet test
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
