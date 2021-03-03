@@ -1,8 +1,8 @@
 language: csharp
 mono: latest
-dotnet: 3.1.200
+dotnet: 2.1.200
 solution: screensaver.sln
 script:
   - dotnet restore
   - msbuild
-  - dotnet test "../screensaver tests/bin/x64/Debug/netcoreapp3.1/screensaver tests.dll"
+  - dotnet test "./screensaver tests/bin/x64/Debug/netcoreapp2.1/screensaver tests.dll"
