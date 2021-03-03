@@ -4,5 +4,5 @@ install:
   - nuget restore screensaver.sln
   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 script:
-  - msbuild /p:Configuration=Release screensaver.sln
-  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe "./screensaver tests/bin/Release/screensaver tests.dll"
+  - msbuild /p:Configuration=Debug screensaver.sln
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe "./screensaver tests/bin/Debug/screensaver tests.dll"
