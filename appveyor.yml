@@ -1,7 +1,0 @@
-before_build:
- - nuget restore
-build_script:
- - choco install "sonarscanner-msbuild-net46" -y
- - SonarScanner.MSBuild.exe begin /k:"SonarQubeNemoOnAppveyorScreensaver" /d:"sonar.host.url=https://sonarcloud.io" /o:"Imgrash" /d:"sonar.login=eeabb98b4916974b33ba72eead82b2be780c1d0c"
- - msbuild /verbosity:quiet "screensaver.sln"
- - SonarScanner.MSBuild.exe end /d:"sonar.login=eeabb98b4916974b33ba72eead82b2be780c1d0c"
